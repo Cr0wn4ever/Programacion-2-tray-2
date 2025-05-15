@@ -37,7 +37,7 @@ print '<br>' . '<br>' . '<h3>Que tal otro tipo de datos...?</h3>' . '<br>' . 'Po
 
 echo '<br>' . 'En efecto, las podemos imprimir sin problema con un simple echo: ' . '($mentira = 1 ya que es booleano, lo que se podria comprobar con un var_dump($mentira)) ' . $mentira . ', ' . $peso;
 
-print '<br>' . '<h2>Pasemos a operaciones aritmeticas!</h2>' . '<br>';
+print '<br>' . '<h2>Pasemos a operaciones aritmeticas! xd</h2>' . '<br>';
 
 $modulo = 10 % 2;
 $exponente = 10 ** 2;

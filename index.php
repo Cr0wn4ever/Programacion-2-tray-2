@@ -28,4 +28,19 @@
 <?php
 require_once 'scripts\basicCommands.php';
 require_once 'scripts\buclesBasicos.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-01-08.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-02.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-03.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-04.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-05.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-06.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-07.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-09.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-10.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-11.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-12.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-13.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-14.php';
+
+
 ?>
