@@ -50,5 +50,7 @@ require_once 'scripts\35-ejercicios-basicos\ejercicio-20.php';
 require_once 'scripts\35-ejercicios-basicos\ejercicio-21.php';
 require_once 'scripts\35-ejercicios-basicos\ejercicio-22.php';
 require_once 'scripts\35-ejercicios-basicos\ejercicio-23.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-24.php';
+require_once 'scripts\35-ejercicios-basicos\ejercicio-25.php';
 
 ?>
