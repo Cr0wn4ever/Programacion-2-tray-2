@@ -55,8 +55,6 @@ echo "<hr><b><h2>FUNCION 0: Determinar de entre los 100 primeros numeros natural
 
 echo "<br><b>Ejecuando la funcion 'func1()' Obtenemos los siguiente: </b><br>";
 
-$imprime = func1();
-
-foreach ($imprime as $key => $value) {
+foreach (func1() as $key => $value) {
     echo "<br><b><i>$key = $value</b></i><br>";
 }
