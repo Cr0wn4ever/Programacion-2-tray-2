@@ -26,7 +26,7 @@ function func3()
         $i++;
     }
 }
-echo "<hr><b><h2>FUNCION 0: Imprimir los numeros del 1 hasta el 100, exceptuando los que sean que pares o primos.</b></h2><br>";
+echo "<hr><b><h2>FUNCION 2: Imprimir los numeros del 1 hasta el 100, exceptuando los que sean que pares o primos.</b></h2><br>";
 
 echo "<br><b>Ejecuando la funcion 'func3()' Obtenemos los siguiente:</b> ";
 

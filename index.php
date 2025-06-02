@@ -69,6 +69,13 @@
 require_once 'scripts\ejercicios-funciones\funcion-01.php';
 require_once 'scripts\ejercicios-funciones\funcion-02.php';
 require_once 'scripts\ejercicios-funciones\funcion-03.php';
+require_once 'scripts\ejercicios-funciones\funcion-04.php';
+require_once 'scripts\ejercicios-funciones\funcion-05.php';
+require_once 'scripts\ejercicios-funciones\funcion-06.php';
+require_once 'scripts\ejercicios-funciones\funcion-07.php';
+require_once 'scripts\ejercicios-funciones\funcion-08.php';
+require_once 'scripts\ejercicios-funciones\funcion-09.php';
+require_once 'scripts\ejercicios-funciones\funcion-10.php';
 
 
 ?>

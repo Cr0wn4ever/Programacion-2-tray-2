@@ -9,7 +9,7 @@ function func2()
     }
 }
 
-echo "<hr><b><h2>FUNCION 0: Calcular el producto de los 1000 primeros numeros naturales y determinar cuantos de estos son multiplos de 5, 8, y 9.</b></h2><br>";
+echo "<hr><b><h2>FUNCION 1: Calcular el producto de los 1000 primeros numeros naturales y determinar cuantos de estos son multiplos de 5, 8, y 9.</b></h2><br>";
 
 echo "<br><b>Ejecuando la funcion 'func2()' Obtenemos los siguiente (POR RAZONES PRACTICAS SOLO SE IMPRIMIRAN LOS RESULTADOS QUE CUMPLAN CON LA CONDICION): </b><br>";
 

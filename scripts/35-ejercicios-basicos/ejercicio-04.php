@@ -4,7 +4,7 @@ echo '<br><hr>' . '<b>EJERCICIO 04: Verificar si un año es bisiesto</b>' . '<br
 
 function EsBisiesto($test)
 {
-    if ($test % 4 == 0 || $test % 100 == 1 || $test % 400 == 0) {
+    if ($test % 4 == 0 && $test % 100 != 0 || $test % 400 == 0) {
         echo '<br>' . $test . ' Es un anio bisiesto';
     } else {
         echo '<br>' . $test . ' No es un anio bisiesto';
