@@ -5,13 +5,14 @@ class Cliente
     private $nombre;
     private $apellido;
     private $cedula;
-    private $cuenta;
+    private $cuentas;
 
-    public function __construct($nombre, $apellido, $cedula)
+    public function __construct($nombre, $apellido, $cedula, $cuentas = [])
     {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->cedula = $cedula;
+        $this->cuentas = $cuentas;
     }
 
     public function getNombre()
@@ -29,9 +30,9 @@ class Cliente
         return $this->cedula;
     }
 
-    public function getCuenta()
+    public function getCuentas()
     {
-        return $this->cuenta;
+        return $this->cuentas;
     }
 
     public function setNombre($nombre)
@@ -41,6 +42,6 @@ class Cliente
 
     public function setCuenta($cuenta)
     {
-        $this->cuenta = $cuenta;
+        $this->cuentas[] = $cuenta;
     }
 }

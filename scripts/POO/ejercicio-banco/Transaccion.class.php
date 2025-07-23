@@ -27,4 +27,17 @@ class Transaccion
     {
         return $this->fecha;
     }
+
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    }
+    public function setMonto($monto)
+    {
+        $this->monto = $monto;
+    }
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    }
 }

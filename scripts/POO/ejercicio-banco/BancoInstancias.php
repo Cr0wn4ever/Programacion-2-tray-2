@@ -2,22 +2,41 @@
 
 require_once 'cliente.class.php';
 require_once 'cuentaBanco.class.php';
+require_once 'databaseTest.php';
 
-$cliente1 = new Cliente("Juan", "Perez", "12345678");
-$cliente2 = new Cliente("Maria", "Gomez", "87654321");
+function crearClientes()
+{
+    global $clientes; // Accede al arreglo importado desde databaseTest.php
+    global $database; // Asegúrate de que $database esté definido en el ámbito global
+    foreach ($clientes as $data) {
+        $cliente = new Cliente($data['Nombres'], $data['Apellidos'], $data['Cedula']);
+        $database["clientes"][] = $cliente;
+    }
+}
 
-$cuentaBanco1 = new CuentaBanco("01020012345678901234", "ahorro", $cliente1, "1234", 115);
-$cuentaBanco2 = new CuentaBanco("01020098765432109876", "corriente", $cliente2, "5678", 200);
+function crearCuenta($cedula, $clave)
+{
+    global $database;
 
-$cuentaBanco3 = new CuentaBanco("01020011223344556677", "corriente", $cliente1, "4321", 350);
-$cuentaBanco4 = new CuentaBanco("01020077665544332211", "ahorro", $cliente2, "8765", 50);
+    $bancos = ['0102', '0105', '0150'];
+    $tiposDeCuenta = ['ahorro', 'corriente'];
 
-$cliente1->setCuenta($cuentaBanco1);
-$cliente1->setCuenta($cuentaBanco3);
-$cliente2->setCuenta($cuentaBanco2);
-$cliente2->setCuenta($cuentaBanco4);
+    $numeroCuenta = $bancos[array_rand($bancos)] . str_pad(rand(0, 9999999999999999), 16, '0', STR_PAD_LEFT);
 
-echo "<pre style='background: #f0f0f0; padding: 10px; border-radius: 5px; display: inline-block;'>";
-print_r($cuentaBanco1);
-print_r($cliente1);
+    foreach ($database["clientes"] as $cliente) {
+        if ($cliente->getCedula() === $cedula) {
+            $cuenta = new CuentaBanco($numeroCuenta, $tiposDeCuenta[array_rand($tiposDeCuenta)], $cliente, $clave);
+            $cliente->setCuenta($cuenta);
+            $database["cuentas"][] = $cuenta;
+        }
+    }
+}
+
+
+crearClientes();
+crearCuenta('12345678', '1234');
+
+echo "<pre style='background: #f0f0f0; padding: 10px; border-radius: 5px; display: inline-block; line-height: 2; font-size: 12px;'>";
+print_r($database["clientes"]);
 echo "</pre>";
+

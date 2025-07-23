@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Transaccion.class.php';
+
 class CuentaBanco
 {
     private $numeroCuenta;
@@ -7,6 +9,7 @@ class CuentaBanco
     private $titular; // Referencia al objeto Cliente
     private $saldo;
     private $claveCajero;
+    private $transacciones = []; // Historial de transacciones
 
     public function __construct($numeroCuenta, $tipo, $titular, $claveCajero, $saldoInicial = 0)
     {
@@ -47,6 +50,11 @@ class CuentaBanco
         return $this->claveCajero;
     }
 
+    public function getTransacciones()
+    {
+        return $this->transacciones;
+    }
+
     public function setTitular($titular)
     {
         $this->titular = $titular;
@@ -57,26 +65,30 @@ class CuentaBanco
         $this->claveCajero = $claveCajero;
     }
 
+    public function RegistrarTransaccion($tipo, $monto)
+    {
+        $transaccion = new Transaccion($tipo, $monto, date('Y-m-d H:i:s'));
+        $this->transacciones[] = $transaccion;
+    }
+
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->RegistrarTransaccion('depósito', $monto);
     }
 
     public function retirar($monto)
     {
         if ($monto <= $this->saldo) {
             $this->saldo -= $monto;
+            $this->RegistrarTransaccion('retiro', $monto);
         } else {
             throw new Exception("Saldo insuficiente");
         }
     }
 
-    public function transferencia($monto, $cuentaDestino)
+    public function transferencia($monto, $cuentaDestino, $descripcion)
     {
-        $this->retirar($monto);
-        return [
-            'cuentaDestino' => $cuentaDestino,
-            'monto' => $monto
-        ];
+        // Verificar que la cuenta destino sea válida
     }
 }
