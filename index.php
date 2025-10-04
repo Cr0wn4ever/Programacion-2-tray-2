@@ -1,81 +1,103 @@
+<?Php
+
+$_SESSION ["userList"] = ["Pedro", "Yixon", "Cr0wn777", "Forex", "VictorDev"];
+
+function displayUsers()
+{
+    echo "<tr><th>Usernames</th></tr>";
+    foreach ($_SESSION["userList"] as $user) {
+        echo "<tr><td>" . htmlspecialchars($user) . "</td>";
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (isset($_POST['username']) && !empty($_POST['username'])) {
+        $newUser = $_POST['username'];
+        if (!in_array($newUser, $_SESSION["userList"])) {
+            $_SESSION["userList"][] = $newUser;
+        }
+    }
+
+    if (isset($_POST['oldUsername']) && !empty($_POST['oldUsername']) && isset($_POST['newUsername']) && !empty($_POST['newUsername'])) {
+        $oldUsername = $_POST['oldUsername'];
+        $newUsername = $_POST['newUsername'];
+        $key = array_search($oldUsername, $_SESSION["userList"]);
+        if ($key !== false && !in_array($newUsername, $_SESSION["userList"])) {
+            $_SESSION["userList"][$key] = $newUsername;
+        }
+    }
+
+    if (isset($_POST['deleteUser']) && !empty($_POST['deleteUser'])) {
+        $userToDelete = $_POST['deleteUser'];
+        $key = array_search($userToDelete, $_SESSION["userList"]);
+        if ($key !== false) {
+            unset($_SESSION["userList"][$key]);
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing basic php comands and words</title>
+    <title>CRUD BASICO | Victor dev | PHP ES UNA BASURA MEJOR PRENDE JAVASCRIPT</title>
 </head>
 
 <body>
-    <div id="content">
-        <div class="basic-commands">BASIC COMMANDS
-            <hr>
-            <br>
-            <?php
-            echo "La forma mas basica de insertar un script dentro de un index de php, es directamente con sus etiqutas de apertura y cierre (< ? php ? >), normalmente iria todo junto, pero por razones practicas se dejo por separado."
-            ?>
-            <br>
-            <p><strong>Sin embargo, existe otra forma de agregar scripts de php al index, y es con el conocido Require once, con el cual se pueden importar scripts desde otras partes de repositorio. Por esta razon a partir de ahora lo hare de esa forma.</strong></p>
-            <br>
-            <p>Ahora que hemos usado el requiere_once para incluir nuestro primer script desde la carpeta scripts, podemos ejecutar su codigo interno desde este mismo index...</p>
-        </div>
+
+
+    <div>
+        <button type="button" onclick="location.reload();">REFRESH</button>
+    </div>
+
+    <section>
+        <form action="/" method="post">
+            <fieldset>
+                <legend>CRUD BASICO</legend>
+                <label for="username">USERNAME <input type="text" id="username" name="username" placeholder="Cr0wn777"></label>
+                <button type="submit">AGREGAR</button>
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <h2>USUARIOS REGISTRADOS</h2>
+        <hr>
+        <table>
+            <?php displayUsers(); ?>
+        </table>
+        <hr>
+        <section>
+            <form action="/" method="post">
+                <fieldset>
+                    <legend>EDITAR USUARIO</legend>
+                    <label for="oldUsername">USERNAME <input type="text" id="oldUsername" name="oldUsername" placeholder="Pedro"></label>
+                    <label for="newUsername">NUEVO USERNAME <input type="text" id="newUsername" name="newUsername" placeholder="Forex"></label>
+                    <button type="submit">EDITAR</button>
+                </fieldset>
+            </form>
+        </section>
+        <hr>
+        <section>
+            <form action="/" method="post">
+                <fieldset>
+                    <legend>ELIMINAR USUARIO</legend>
+                    <label for="deleteUser">USERNAME <input type="text" id="deleteUser" name="deleteUser" placeholder="Yixon"></label>
+                    <button type="submit">ELIMINAR</button>
+                </fieldset>
+            </form>
+        </section>
+    </section>
+
+    <div>
+        <hr>
+        <?php print_r($_SESSION["userList"]); ?>
     </div>
 </body>
 
 </html>
-
-<?php
-//EJERCICIOS BASICOS
-
-// require_once 'scripts\basicCommands.php';
-// require_once 'scripts\buclesBasicos.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-01-08.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-02.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-03.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-04.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-05.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-06.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-07.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-09.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-10.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-11.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-12.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-13.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-14.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-15.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-16.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-17.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-18.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-19.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-20.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-21.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-22.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-23.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-24.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-25.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-26.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-27.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-28.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-29.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-30.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-31.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-32.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-33.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-34.php';
-// require_once 'scripts\35-ejercicios-basicos\ejercicio-35.php';
-
-//EJERCICIOS CON FUNCIONES
-require_once 'scripts\ejercicios-funciones\funcion-01.php';
-require_once 'scripts\ejercicios-funciones\funcion-02.php';
-require_once 'scripts\ejercicios-funciones\funcion-03.php';
-require_once 'scripts\ejercicios-funciones\funcion-04.php';
-require_once 'scripts\ejercicios-funciones\funcion-05.php';
-require_once 'scripts\ejercicios-funciones\funcion-06.php';
-require_once 'scripts\ejercicios-funciones\funcion-07.php';
-require_once 'scripts\ejercicios-funciones\funcion-08.php';
-require_once 'scripts\ejercicios-funciones\funcion-09.php';
-require_once 'scripts\ejercicios-funciones\funcion-10.php';
-
-
-?>
