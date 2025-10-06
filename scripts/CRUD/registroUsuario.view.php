@@ -1,4 +1,4 @@
-<form action="./scripts/CRUD/registro.controller.php" method="POST">
+<form action="./scripts/CRUD/registroUsuario.controller.php" method="POST">
     <fieldset>
         <legend>Registro de Usuario</legend>
         <label for="cedula">Cédula de identidad:<input type="text" name="cedula" placeholder="cedula" required></label>

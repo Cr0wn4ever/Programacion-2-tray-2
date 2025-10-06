@@ -68,12 +68,35 @@
             </p>
             <section>
                 <header>
-                    <h2>Formulario de registro</h2>
+                    <h2>Lista de todos los usuarios registrados</h2>
                 </header>
-                <?php require_once "./scripts/CRUD/registro.view.php" ?>
+                <?php 
+                require_once "scripts/CRUD/listarUsuario.view.php";
+                ?>
             </section>
             <section>
-                <?php require_once "./scripts/CRUD/mostrarUsuarios.view.php" ?>
+                <header>
+                    <h2>Seccion de registro</h2>
+                </header>
+                <?php
+                require_once 'scripts/CRUD/registroUsuario.view.php';
+                ?>
+            </section>
+            <section>
+                <header>
+                    <h2>Actualizacion de datos</h2>
+                </header>
+                <?php
+                require_once 'scripts/CRUD/modificarUsuario.view.php';
+                ?>
+            </section>
+            <section>
+                <header>
+                    <h2>Demostracion de eliminacion de usuario</h2>
+                </header>
+                <?php
+                require_once 'scripts/CRUD/borrarUsuario.view.php';
+                ?>
             </section>
         </article>
     </main>
