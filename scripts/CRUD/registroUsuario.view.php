@@ -1,11 +1,16 @@
 <form action="./scripts/CRUD/registroUsuario.controller.php" method="POST">
     <fieldset>
         <legend>Registro de Usuario</legend>
-        <label for="cedula">Cédula de identidad:<input type="text" name="cedula" placeholder="cedula" required></label>
-        <label for="nombres">Nombres:<input type="text" name="nombres" placeholder="nombres" required></label>
-        <label for="apellidos">Apellidos:<input type="text" name="apellidos" placeholder="apellidos" required></label>
-        <label for="email">Email:<input type="email" name="email" placeholder="email" required></label>
-        <label for="user_pass">Contraseña:<input type="password" name="user_pass" placeholder="contraseña" required></label>
+        <label for="cedula">Cédula de identidad:</label>
+        <input type="text" id="cedula" name="cedula" placeholder="cedula" required>
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" placeholder="nombres" required>
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" placeholder="apellidos" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="email" required>
+        <label for="user_pass">Contraseña:</label>
+        <input type="password" id="user_pass" name="user_pass" placeholder="contraseña" required>
         <button type="submit">Registrar</button>
     </fieldset>
 </form>

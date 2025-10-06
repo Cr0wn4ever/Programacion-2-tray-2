@@ -20,6 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $usuarioModel->updateById($_POST['id'], $data);
 
-    header('Location: ../../index.php');
+    header('Location: ../../index.php#crud-basico-con-php');
     exit();
 }

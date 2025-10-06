@@ -10,5 +10,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $usuarioModel->deleteById($id);
 }
-header('Location: ../../index.php');
+header('Location: ../../index.php#crud-basico-con-php');
 exit();

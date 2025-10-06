@@ -6,6 +6,7 @@ if (count($usuarios) > 0) {
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Cedula</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
@@ -15,6 +16,7 @@ if (count($usuarios) > 0) {
     foreach ($usuarios as $usuario) {
         echo "<tr>
                 <td>{$usuario['id']}</td>
+                <td>{$usuario['cedula']}</td>
                 <td>{$usuario['nombres']}</td>
                 <td>{$usuario['apellidos']}</td>
                 <td>{$usuario['email']}</td>
